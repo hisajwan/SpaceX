@@ -1,0 +1,17 @@
+$large-scale: "only screen and (min-width: 1024px)";
+$medium-scale: "only screen and (min-width: 700px))";
+$small-scale: "only screen and (max-width: 700px)";
+
+@mixin respond($point) {
+  @if $point == large {
+      @media  #{$large-scale} { @content; }
+  }
+  @else if $point == medium {
+      @media  #{$medium-scale} { @content; }
+  }
+  @else if $point == small {
+    @media  #{$small-scale} { @content; }
+  }
+
+  @media (min-width: 1441px){ @content; }
+}

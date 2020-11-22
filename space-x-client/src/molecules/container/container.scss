@@ -1,0 +1,65 @@
+@import '../../utils/common/scss/media.scss';
+@import '../../utils/common/scss/variables.scss';
+
+$blockName: '.container';
+
+#{$blockName} {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @include respond(medium) {
+        display: grid;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include respond(large) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        background-color: $white;
+        border-radius: 10px;
+    }
+
+    &__card-header {
+        background-color: $grey;
+        margin: 10px 10px 20px;
+    }
+
+    &__card-image {
+        max-width: 90%;
+    }
+
+    &__card-title {
+        color: $fade-blue;
+        font-weight: bold;
+        margin: 0 10px 20px;
+        overflow-wrap: break-word;
+    }
+    
+    &__card-body {
+        margin: 0 10px 10px;
+        
+        &> div {
+            margin-bottom: 10px;
+            font-weight: bold;
+             &> span {
+                font-weight: normal;
+                color: $fade-blue;
+             }
+        }
+        & ul {
+            color: $fade-blue;
+            font-weight: normal;
+            list-style: disc;
+            margin: 2px 0px;
+        }
+    }
+    
+}
