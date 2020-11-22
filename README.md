@@ -15,12 +15,5 @@ Attached
 
 Lighthouse Report
 ====================
-Mobile:-
-==========
 
-https://github.com/hsajwan/SpaceX/blob/master/lighthouse/lighthouseReportMobile.PNG
-
-Desktop:-
-==========
-
-https://github.com/hsajwan/SpaceX/blob/master/lighthouse/LightHouseReportDesktop.PNG
+https://github.com/hsajwan/SpaceX/tree/main/lighthouse%20report
