@@ -44,8 +44,13 @@ class Launches extends Component {
         });
       }
 
+      resetFilter() {
+        this.props.resetFilter();
+        this.props.history.push('/')
+      }
+
       render() {
-        const { launches } = this.props;
+        const { launches, land, loading } = this.props;
         return (
             <div className={blockName}>
                 <header className={`${blockName}__title`}>SpaceX Launch Programs</header>
@@ -54,12 +59,13 @@ class Launches extends Component {
                       year={this.props.year}
                       launch={this.props.launch}
                       land={this.props.land}
+                      resetFilter={this.resetFilter.bind(this)}
                       filterData={this.filterData.bind(this)}
                       yearFilter={this.props.yearFilter}
                       landFilter={this.props.landFilter}
                       launchFilter={this.props.launchFilter}
                     />
-                    <Container launches= {launches}/>
+                    <Container launches= {launches} landing={land} loading={loading}/>
                 </main>
                 <footer className={`${blockName}__footer`}><b>Developed by: </b>{this.props && this.props.creatorDetails && this.props.creatorDetails.name}</footer>
             </div>
@@ -78,4 +84,4 @@ class Launches extends Component {
 
 // export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Launches));
 
-export default withRouter(Launches)
+export default withRouter(Launches);

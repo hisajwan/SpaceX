@@ -3,14 +3,14 @@ import './button.scss';
 
 const blockName = 'button';
 
-function Button({content, filterData, filterName}) {
+function Button({customClass, content, onButtonClick, filterName}) {
     const {selected, value} = content;
     const handleClick = (e, content) => {
         e.preventDefault();
-        filterData(content, filterName)
+        onButtonClick(content, filterName)
     }
     return (
-        <a role='button' className={`${blockName} ${selected ? `${blockName}__selected` : ''}`} onClick={e => handleClick(e, content)} href={`#`}>{value}</a>
+        <a role='button' className={`${blockName} ${selected ? `${blockName}__selected` : ''} ${customClass}`} onClick={e => handleClick(e, content)} href={`#`}>{value}</a>
     )
 }
 

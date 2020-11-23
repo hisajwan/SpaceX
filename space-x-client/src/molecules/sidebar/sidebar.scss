@@ -11,6 +11,19 @@ $blockName: '.sidebar';
         }
     }
 
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    &__clear-filter {
+        background: $light-brown !important;
+        padding: 5px !important;
+        margin: 0 10px;
+        width: max-content !important;
+    }
+
     &__filters {
         margin: 10px 15px;
         text-align: center;

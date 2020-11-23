@@ -22,23 +22,35 @@ class App extends Component {
         launch: '',
         land: '',
         creatorDetails: {},
+        loading: true,
       }
       this.state = initialData || initialState;
   }
 
+  resetFilter() {
+    this.setState({
+      year: '',
+      launch: '',
+      land: '',
+    })
+  }
+
   callAPI(url) {
     axios.get(url)
-    .then(response => this.setState({launches: response.data}));
+    .then(response => this.setState({launches: response.data, loading: false}));
   }
 
   setFilter(key, value, callback) {
-    this.setState({[key]: value}, callback)
+    if(this.state[key].toString() === value.toString()) this.setState({[key]: '',loading: true}, callback);
+    else this.setState({[key]: value, loading: true}, callback)
   }
 
   render() {
     return (
       <div className="App">
         <Launches
+          loading= {this.state.loading}
+          resetFilter={this.resetFilter.bind(this)}
           setFilter={this.setFilter.bind(this)}
           callAPI={this.callAPI.bind(this)}
           launches={this.state.launches}
